@@ -21,6 +21,7 @@ for /L %%i in (1,1,%n%) do (
     echo Saving results...
     mkdir "..\..\..\..\flakycheck\bludit-3.13.1\java21-selenium435-chrome127native-2\%%i"
     xcopy /E /Y "target\surefire-reports\*" "..\..\..\..\flakycheck\bludit-3.13.1\java21-selenium435-chrome127native-2\%%i\"
+    move "*.html" "..\..\..\..\flakycheck\bludit-3.13.1\java21-selenium435-chrome127native-2\%%i\"
 
     echo Stopping and removing Docker containers...
     docker stop bludit >nul
