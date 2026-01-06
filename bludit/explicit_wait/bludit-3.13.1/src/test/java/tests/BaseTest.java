@@ -24,7 +24,7 @@ public class BaseTest {
 	public void setUp() {
 		setupNativeBrowser();
 		driver.manage().window().maximize();
-		driver.get("http://192.168.1.141:8080/admin");
+		driver.get("http://127.0.0.1:8080/admin");
 	}
 
 	public void setupNativeBrowser() {

@@ -8,9 +8,6 @@ for /L %%i in (1,1,%n%) do (
     echo.
     echo [ESECUZIONE %%i DI %n%]
 
-    echo STarting browser container...
-    docker run -d -p 4444:4444 -p 7900:7900 --shm-size="2g" --name=browser selenium/standalone-chrome:127.0-chromedriver-127.0
-
     timeout /t 5 /nobreak >nul
 
     echo Starting Bludit container...
@@ -26,8 +23,6 @@ for /L %%i in (1,1,%n%) do (
     xcopy /E /Y "target\surefire-reports\*" "..\..\..\..\flakycheck\bludit-3.13.1\java21-selenium435-chrome127native-2\%%i\"
 
     echo Stopping and removing Docker containers...
-    docker stop browser >nul
-    docker rm browser >nul
     docker stop bludit >nul
     docker rm bludit >nul
 

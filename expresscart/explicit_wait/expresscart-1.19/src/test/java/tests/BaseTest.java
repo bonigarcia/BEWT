@@ -17,11 +17,11 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 public class BaseTest {
 	
 	public WebDriver driver;
-	public String appUrl = "http://192.168.1.141:3000";
+	public String appUrl = "http://127.0.0.1:3000";
 	
 	@Before
 	public void setUp() {
-		setupRemoteWebdriver();
+	    setupNativeBrowser(); // setupRemoteWebdriver();
         driver.manage().window().maximize();
 	}
 

@@ -8,8 +8,8 @@ for /L %%i in (1,1,%n%) do (
     echo.
     echo [RUN %%i OF %n%]
 
-    echo Starting browser container...
-    docker run -d -p 4444:4444 -p 7900:7900 --shm-size="2g" --name=browser selenium/standalone-chrome:127.0-chromedriver-127.0
+    REM echo Starting browser container...
+    REM docker run -d -p 4444:4444 -p 7900:7900 --shm-size="2g" --name=browser selenium/standalone-chrome:127.0-chromedriver-127.0
 
     timeout /t 5 /nobreak >nul
 
@@ -26,8 +26,8 @@ for /L %%i in (1,1,%n%) do (
     xcopy /E /Y "target\surefire-reports\*" "..\..\..\..\flakycheck\expresscart\java21-selenium435-chrome127docker-4-noheadless\%%i\"
 
     echo Stopping and removing Docker containers...
-    docker stop browser >nul
-    docker rm browser >nul
+    REM docker stop browser >nul
+    REM docker rm browser >nul
     docker stop expresscart >nul
     docker rm expresscart >nul
 
